@@ -4,9 +4,9 @@ import { getFeedById } from "@/lib/feed";
 import formatDate from "@/lib/formatDate";
 import Image from "next/image";
 
-type FeedPageProps = {
+interface FeedPageProps {
   params: { _id: string };
-};
+}
 
 export default async function FeedPage({ params }: FeedPageProps) {
   const { _id } = params;

@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 import { getFeedsByWallet } from "@/lib/feed";
 import React from "react";
 
-type UserFeedspageProps = {
+interface UserFeedspageProps {
   params: { address: string };
-};
+}
 
 export default async function UserFeedspage({ params }: UserFeedspageProps) {
   const address = await params.address;

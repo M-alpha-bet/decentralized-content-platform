@@ -3,10 +3,10 @@
 import { motion } from "motion/react";
 import { ReactNode } from "react";
 
-type Props = {
+interface Props {
   children: ReactNode;
   className?: string;
-};
+}
 
 export default function FadeInFromBottom({ children, className }: Props) {
   return (
