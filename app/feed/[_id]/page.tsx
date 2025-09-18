@@ -9,7 +9,7 @@ type FeedPageProps = {
 };
 
 export default async function FeedPage({ params }: FeedPageProps) {
-  const { _id } = await params;
+  const { _id } = params;
   const feed = await getFeedById(_id);
 
   if (!feed) {
