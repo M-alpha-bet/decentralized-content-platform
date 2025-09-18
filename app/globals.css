@@ -1,26 +1,105 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "lora";
+  src: url("/fonts/Lora-Regular.ttf");
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: "archivo";
+  src: url("/fonts/Archivo-Regular.ttf");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --font-lora: "lora", sans-serif;
+  --font-archivo: "archivo", sans-serif;
+  --color-whiteColor: #fef3eb;
+  --color-grayColor: #fcf0cd;
+  --color-darkColor: #fbb700;
+}
+
+@layer utilities {
+  body {
+    @apply font-lora overflow-x-hidden bg-whiteColor text-gray-900 md:text-[17px] font-medium m-0;
+  }
+
+  h2 {
+    @apply font-archivo text-[30px] leading-[25px];
+  }
+
+  h3 {
+    @apply text-[14px] md:text-[16px];
+  }
+
+  p {
+    @apply text-[14px] md:text-[16px] leading-[22px] tracking-tight;
+  }
+
+  .border-colored {
+    @apply border border-darkColor rounded-full;
+  }
+
+  .heading-text {
+    @apply font-archivo text-[50px] md:text-[70px] leading-[50px] md:leading-[60px] font-medium;
+  }
+
+  .outlined-button {
+    @apply border-b text-[14px] md:text-[16px] border-darkColor text-gray-900;
+  }
+
+  .rounded-button {
+    @apply bg-darkColor text-white rounded-full;
+  }
+
+  .rounded-text-gray {
+    @apply rounded-full text-darkColor  bg-grayColor;
+  }
+
+  .feeds-box-text {
+    @apply text-[15px]  leading-[22px] tracking-tight;
+  }
+
+  .guide-box {
+    @apply md:w-1/3 w-full px-[20px] md:px-0 md:text-center text-left flex md:block;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shine {
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shine 3s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2.5s ease-in-out infinite;
 }
