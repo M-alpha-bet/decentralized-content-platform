@@ -4,12 +4,12 @@ import { getFeedById } from "@/lib/feed";
 import formatDate from "@/lib/formatDate";
 import Image from "next/image";
 
-interface FeedPageProps {
+interface FeedpageProps {
   params: { _id: string };
 }
 
-export default async function FeedPage({ params }: FeedPageProps) {
-  const _id = params._id;
+export default async function FeedPage({ params }: FeedpageProps) {
+  const _id = await params._id;
   const feed = await getFeedById(_id);
 
   if (!feed) {
